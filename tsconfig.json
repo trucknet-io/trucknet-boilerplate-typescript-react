@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "strict": true,
+    "jsx": "react",
+    "lib": ["es2015", "es2017", "dom"],
+    "baseUrl": "."
+  },
+  "include": ["src/**/*", "images.d.ts"]
+}
