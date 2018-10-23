@@ -27,7 +27,8 @@
     "start": "env-cmd development webpack-dev-server --config webpack.config.js",
     "build": "env-cmd production webpack --config webpack.config.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "jest --detectOpenHandles --coverage && jest-coverage-badges"
+    "test": "jest --detectOpenHandles",
+    "test:coverage": "--coverage && jest-coverage-badges"
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
