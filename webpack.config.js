@@ -3,7 +3,6 @@ const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const CaseSensitivePathsWebpackPlugin = require("case-sensitive-paths-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const RollbarSourceMapPlugin = require("rollbar-sourcemap-webpack-plugin");
@@ -17,8 +16,7 @@ const paths = {
   template: "src/index.ejs",
 };
 
-const FAVICON = path.resolve(__dirname, `${paths.static}/favicon.png`);
-const TITLE = "Arrow";
+const TITLE = "Boilerplate";
 const LANGUAGES_REGEX = new RegExp("en,he".split(",").join("|"));
 const DEV = process.env.NODE_ENV !== "production";
 
@@ -30,11 +28,6 @@ const plugins = [
   new webpack.EnvironmentPlugin({
     ROLLBAR_CLIENT_TOKEN: null, // not required, so it is null
     ROLLBAR_ENV: undefined,
-  }),
-  new FaviconsWebpackPlugin({
-    logo: FAVICON,
-    title: TITLE,
-    background: "#000",
   }),
   new HtmlWebpackPlugin({
     template: path.resolve(__dirname, paths.template),
