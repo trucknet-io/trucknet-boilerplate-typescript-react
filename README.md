@@ -2,10 +2,6 @@
 
 > Boilerplate for a new react project with material UI and Typescript!
 
-![Coverage badge][coverage-badge]
-
-[coverage-badge]: ./coverage/badge-functions.svg
-
 ## Added libraries:
 
 ### Frontend

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Boilerplate for react project on typescript",
   "engines": {
-    "node": "~8.12.0",
+    "node": "~10.14.0",
     "npm": "~6.4.0"
   },
   "repository": {
@@ -20,15 +20,19 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "precommit": "lint-staged && npm run lint:tslint",
-    "commit": "git-cz",
+    "commit": "commit-prompt",
+    "precommit": "lint-staged && npm run lint",
+    "lint": "npm run lint:tsc && npm run lint:tslint",
+    "lint:tsc": "tsc -p tsconfig.json",
     "lint:prettier": "prettier --write \"{src,test}/**/*.ts*\"",
     "lint:tslint": "tslint -c tslint.json -p tsconfig.json --fix",
     "start": "env-cmd development webpack-dev-server --config webpack.config.js",
     "build": "env-cmd production webpack --config webpack.config.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "jest --detectOpenHandles",
-    "test:coverage": "--coverage && jest-coverage-badges"
+    "test:unit": "jest --detectOpenHandles --testPathPattern \"src/.+spec.tsx?$\"",
+    "test:e2e": "jest --detectOpenHandles --testPathPattern \"__tests__/.+.tsx?\"",
+    "test:ci": "jest --detectOpenHandles --coverage"
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
@@ -58,14 +62,11 @@
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^23.3.5",
     "@types/storybook__react": "^3.0.9",
-    "commitizen": "^3.0.2",
-    "cz-emoji": "^1.1.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "jest": "^23.6.0",
-    "jest-coverage-badges": "^1.0.0",
-    "lint-staged": "^7.3.0",
-    "prettier": "^1.14.3",
+    "prettier-config-trucknet-io": "^1.1.0",
+    "trucknet-commit": "^1.3.7",
     "ts-jest": "^23.10.4",
     "tslint": "^5.7.0",
     "tslint-config-trucknet-io": "^1.0.1",
