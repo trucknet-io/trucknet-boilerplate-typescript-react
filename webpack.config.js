@@ -78,7 +78,7 @@ module.exports = {
   },
   plugins,
   resolve: {
-    extensions: [".wasm", ".mjs", ".js", ".json", ".ts", ".tsx"],
+    extensions: [".ts", ".tsx", ".wasm", ".mjs", ".js", ".json"],
     plugins: [new TsconfigPathsPlugin()],
   },
   module: {
