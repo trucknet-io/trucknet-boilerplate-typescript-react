@@ -13,7 +13,7 @@ module.exports = (baseConfig, env, config) => {
       },
     ],
   });
-  config.resolve.extensions.push(".ts", ".tsx");
+  config.resolve.extensions.unshift(".ts", ".tsx");
   config.resolve.plugins = [new TsconfigPathsPlugin()];
   return config;
 };

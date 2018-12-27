@@ -19,7 +19,7 @@ class Header extends React.PureComponent<IProps> {
     return (
       <AppBar position="static" color="default">
         <Toolbar>
-          <Typography className={classes.title} variant="title" color="inherit">
+          <Typography className={classes.title} variant="h6" color="inherit">
             Site title
           </Typography>
         </Toolbar>

@@ -4,8 +4,7 @@
 /node_modules
 
 # testing
-/coverage/*
-!coverage/*.svg
+/coverage
 
 # production
 /www
@@ -20,3 +19,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Compiled JS
+src/**/*.js
+src/**/*.js.map
