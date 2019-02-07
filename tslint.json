@@ -1,6 +1,12 @@
 {
   "extends": "tslint-config-trucknet-io",
   "rules": {
-    "radix": false
+    "max-line-length": [
+      true,
+      {
+        "limit": 80,
+        "ignore-pattern": "^\\s+`|^\\s+\"|describe\\(\"|it\\(\"|test\\(\""
+      }
+    ]
   }
 }

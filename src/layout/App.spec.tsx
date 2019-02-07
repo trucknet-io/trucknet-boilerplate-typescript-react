@@ -1,11 +1,13 @@
-import { createShallow } from "@material-ui/core/test-utils";
+import "jest-dom/extend-expect";
 import * as React from "react";
+import { cleanup, render } from "react-testing-library";
 import App from "src/layout/App";
 
-const wrapper = createShallow()(<App />);
+afterEach(cleanup);
 
-describe("src/App", () => {
-  test("renders without crashing", () => {
-    expect(wrapper.exists()).toBe(true);
+describe("App component", () => {
+  test("should render without crashing", () => {
+    const { container } = render(<App />);
+    expect(container).toBeTruthy();
   });
 });
