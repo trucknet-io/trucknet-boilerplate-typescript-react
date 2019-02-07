@@ -9,7 +9,8 @@
     "strict": true,
     "jsx": "react",
     "lib": ["es2015", "es2017", "dom"],
-    "baseUrl": "."
+    "baseUrl": ".",
+    "typeRoots": ["node_modules/@types", "./definitions"]
   },
-  "include": ["src/**/*", "__tests__/**/*", "images.d.ts"]
+  "include": ["definitions/**/*.d.ts", "src/**/*", "__tests__/**/*"]
 }
