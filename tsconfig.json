@@ -11,5 +11,5 @@
     "lib": ["es2015", "es2017", "dom"],
     "baseUrl": "."
   },
-  "include": ["src/**/*", "images.d.ts"]
+  "include": ["src/**/*", "__tests__/**/*", "images.d.ts"]
 }
