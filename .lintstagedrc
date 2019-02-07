@@ -7,13 +7,11 @@
     "*.ts": [
       "tslint --fix",
       "prettier --write",
-      "tsc",
       "git add"
     ],
     "*.tsx": [
       "tslint --fix",
       "prettier --write",
-      "tsc",
       "git add"
     ]
   }

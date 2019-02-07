@@ -4,7 +4,8 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const CaseSensitivePathsWebpackPlugin = require("case-sensitive-paths-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 const RollbarSourceMapPlugin = require("rollbar-sourcemap-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
@@ -46,7 +47,9 @@ if (DEV) {
   plugins.push(new webpack.HotModuleReplacementPlugin());
   plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
 } else {
-  plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: "static" }));
+  plugins.push(
+    new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: "static" }),
+  );
 }
 
 if (process.env.ROLLBAR_SERVER_TOKEN && process.env.BASE_URL) {
@@ -69,6 +72,11 @@ module.exports = {
     contentBase: path.join(__dirname, paths.static),
     historyApiFallback: true,
     hot: true,
+    watchOptions: {
+      poll: 1000,
+      aggregateTimeout: 500,
+      ignored: ["node_modules", "dist"],
+    },
   },
   mode: DEV ? "development" : "production",
   output: {
@@ -96,7 +104,9 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        use: [{ loader: "file-loader", options: { outputPath: "assets/images" } }],
+        use: [
+          { loader: "file-loader", options: { outputPath: "assets/images" } },
+        ],
       },
     ],
   },

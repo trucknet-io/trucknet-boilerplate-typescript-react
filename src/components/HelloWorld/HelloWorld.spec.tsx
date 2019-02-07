@@ -1,6 +1,6 @@
 import "jest-dom/extend-expect";
 import * as React from "react";
-import { cleanup, render } from "react-testing-library";
+import { cleanup, fireEvent, render } from "react-testing-library";
 import HelloWorld from "src/components/HelloWorld";
 
 const message = "test";
@@ -21,5 +21,21 @@ describe("HelloWorld component", () => {
       <HelloWorld message={message} color={color} />,
     );
     expect(getByText(`${message}!`)).toHaveStyle(`color: ${color}`);
+  });
+
+  it("should render 1 on the button after render", () => {
+    const { getByTestId } = render(
+      <HelloWorld message={message} color={color} />,
+    );
+    expect(getByTestId("counter-button")).toHaveTextContent("1");
+  });
+
+  it("should render 4 after the button was clicked 3 times", () => {
+    const { getByTestId } = render(
+      <HelloWorld message={message} color={color} />,
+    );
+    fireEvent.click(getByTestId("counter-button"));
+    fireEvent.click(getByTestId("counter-button"));
+    expect(getByTestId("counter-button")).toHaveTextContent("3");
   });
 });
