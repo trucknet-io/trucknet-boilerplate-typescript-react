@@ -58,12 +58,14 @@
     "webpack-bundle-analyzer": "^3.0.3"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^4.1.11",
     "@storybook/react": "^4.1.11",
     "@types/jest": "^23.3.14",
     "@types/storybook__react": "^4.0.0",
     "jest": "^23.6.0",
     "jest-dom": "^3.0.2",
     "prettier-config-trucknet-io": "^2.0.1",
+    "react-docgen-typescript-loader": "^3.0.1",
     "react-hot-loader": "^4.6.5",
     "react-testing-library": "^5.5.3",
     "rimraf": "^2.6.3",

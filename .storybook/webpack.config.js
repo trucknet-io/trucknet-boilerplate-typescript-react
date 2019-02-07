@@ -11,6 +11,9 @@ module.exports = (baseConfig, env, config) => {
           transpileOnly: true,
         },
       },
+      {
+        loader: require.resolve("react-docgen-typescript-loader"),
+      },
     ],
   });
   config.resolve.extensions.unshift(".ts", ".tsx");
