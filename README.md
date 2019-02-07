@@ -14,21 +14,27 @@
 
 This repo includes [Storybook](https://storybook.js.org/) - a great way to develop components. [Try a tutorial](https://www.learnstorybook.com/) to get started, if you are not familiar with this instrument.
 
-## Added libraries:
+## Component Testing
+
+[react-testing-library](https://github.com/kentcdodds/react-testing-library) is used to write integration tests of React components. [jest-dom](https://github.com/gnapse/jest-dom#readme) is used to have better development experience to write expectations.
+
+If you need any inspiration on how to write tests with different libraries from react world (`react-redux`, `react-router`) you can always look at [Examples](https://github.com/kentcdodds/react-testing-library#examples) and [official documentation](https://testing-library.com/docs/intro).
+
+## Added libraries
 
 ### Frontend
 
-- React 16.5
-- Typescript 3.1
-- material-ui 3.2
-- material-ui/icons 3.1
+- React v16
+- Typescript v3
+- material-ui v3
+- material-ui/icons v3
 
 ### Build
 
 - env-cmd
-- Webpack 4
-- Babel 7 (only for storybooks)
-- awesome-typescript-loader 5
+- Webpack v4
+- Babel v7 (only for storybooks)
+- awesome-typescript-loader v5
 - favicons-webpack-plugin
 - html-webpack-plugin
 - file-loader
@@ -37,12 +43,12 @@ This repo includes [Storybook](https://storybook.js.org/) - a great way to devel
 
 ### Dev
 
-- @storybook/react 4
-- jest 23
+- @storybook/react v4
+- jest v23
 - ts-jest
-- jest-coverage-badges
 - tslint (with trucknet config)
-- enzyme
+- react-testing-library
 - lint-staged
 - prettier
-- commitizen (with cz-emoji)
+- husky
+- commit-prompt
