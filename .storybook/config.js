@@ -6,7 +6,11 @@ import { theme } from "src/contexts/theme";
 import { withInfo } from "@storybook/addon-info";
 
 // https://github.com/storybooks/storybook/tree/master/addons/info
-addDecorator(withInfo);
+addDecorator(
+  withInfo({
+    inline: true,
+  }),
+);
 
 addDecorator((story) =>
   React.createElement(MuiThemeProvider, {
