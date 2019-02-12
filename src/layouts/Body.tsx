@@ -1,6 +1,6 @@
 import { Theme, withStyles, WithStyles } from "@material-ui/core/styles";
 import * as React from "react";
-import Header from "src/layout/Header";
+import Header from "src/layouts/Header";
 import Dashboard from "src/pages/Dashboard";
 
 const styles = (theme: Theme) => ({

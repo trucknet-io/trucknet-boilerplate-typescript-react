@@ -44,7 +44,6 @@ const plugins = [
 
 if (DEV) {
   plugins.push(new webpack.NamedModulesPlugin());
-  plugins.push(new webpack.HotModuleReplacementPlugin());
   plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
 } else {
   plugins.push(
@@ -101,6 +100,11 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.jsx?$/,
+        include: /node_modules/,
+        use: ["react-hot-loader/webpack"],
       },
       {
         test: /\.(png|jpg|gif)$/,
