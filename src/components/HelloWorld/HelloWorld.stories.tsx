@@ -13,4 +13,6 @@ stories.add("With red message Hellow", () => (
   <HelloWorld color="red" message="Helo" onChange={action("onChange")} />
 ));
 
-stories.add("With red emoji", () => <HelloWorld color="red" message="😋" />);
+stories.add("With red emoji", () => (
+  <HelloWorld color="red" message="😋" onChange={action("onChange")} />
+));

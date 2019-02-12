@@ -5,16 +5,17 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "src/contexts/theme";
 import { withInfo } from "@storybook/addon-info";
 import { checkA11y } from "@storybook/addon-a11y";
+import { withKnobs } from "@storybook/addon-knobs";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 
-// https://github.com/storybooks/storybook/tree/master/addons/info
+addDecorator(withSmartKnobs);
+addDecorator(withKnobs);
 addDecorator(
   withInfo({
     inline: true,
   }),
 );
-
 addDecorator(checkA11y);
-
 addDecorator((story) =>
   React.createElement(MuiThemeProvider, {
     theme,
@@ -23,7 +24,6 @@ addDecorator((story) =>
 );
 
 const req = require.context("../src", true, /\.stories\.tsx$/);
-
 function loadStories() {
   req.keys().forEach((filename) => req(filename));
 }
