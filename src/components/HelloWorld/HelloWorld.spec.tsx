@@ -38,4 +38,15 @@ describe("HelloWorld component", () => {
     fireEvent.click(getByTestId("counter-button"));
     expect(getByTestId("counter-button")).toHaveTextContent("3");
   });
+
+  it("should fire an onChange function with an updated value", () => {
+    const handleChangeSpy = jest.fn();
+    const { getByTestId } = render(
+      <HelloWorld message={message} color={color} onChange={handleChangeSpy} />,
+    );
+    fireEvent.click(getByTestId("counter-button"));
+    expect(handleChangeSpy).toHaveBeenLastCalledWith(2);
+    fireEvent.click(getByTestId("counter-button"));
+    expect(handleChangeSpy).toHaveBeenLastCalledWith(3);
+  });
 });

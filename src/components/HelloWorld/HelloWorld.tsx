@@ -3,6 +3,7 @@ import * as React from "react";
 type Props = {
   message: string;
   color: string;
+  onChange?(newValue: number): void;
 };
 
 class HelloWorld extends React.PureComponent<Props> {
@@ -24,9 +25,13 @@ class HelloWorld extends React.PureComponent<Props> {
     );
   }
   private updateCounter = () => {
+    const newValue = this.state.counter + 1;
     this.setState({
-      counter: this.state.counter + 1,
+      counter: newValue,
     });
+    if (this.props.onChange) {
+      this.props.onChange(newValue);
+    }
   };
 }
 

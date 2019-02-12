@@ -8,6 +8,7 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 const RollbarSourceMapPlugin = require("rollbar-sourcemap-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const WebpackBar = require("webpackbar");
 
 const paths = {
   input: "src",
@@ -22,6 +23,7 @@ const LANGUAGES_REGEX = new RegExp("en,he".split(",").join("|"));
 const DEV = process.env.NODE_ENV !== "production";
 
 const plugins = [
+  new WebpackBar(),
   new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, LANGUAGES_REGEX),
   new CleanWebpackPlugin([paths.output]),
   new CopyWebpackPlugin([paths.static]),
@@ -76,6 +78,7 @@ module.exports = {
       aggregateTimeout: 500,
       ignored: ["node_modules", "dist"],
     },
+    stats: "minimal",
   },
   mode: DEV ? "development" : "production",
   output: {

@@ -4,6 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "src/contexts/theme";
 import { withInfo } from "@storybook/addon-info";
+import { checkA11y } from "@storybook/addon-a11y";
 
 // https://github.com/storybooks/storybook/tree/master/addons/info
 addDecorator(
@@ -11,6 +12,8 @@ addDecorator(
     inline: true,
   }),
 );
+
+addDecorator(checkA11y);
 
 addDecorator((story) =>
   React.createElement(MuiThemeProvider, {
