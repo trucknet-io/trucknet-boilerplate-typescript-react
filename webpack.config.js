@@ -9,6 +9,7 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 const RollbarSourceMapPlugin = require("rollbar-sourcemap-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const WebpackBar = require("webpackbar");
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 
 const paths = {
   input: "src",
@@ -47,6 +48,7 @@ const plugins = [
 if (DEV) {
   plugins.push(new webpack.NamedModulesPlugin());
   plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+  plugins.push(new HardSourceWebpackPlugin());
 } else {
   plugins.push(
     new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: "static" }),
@@ -100,6 +102,7 @@ module.exports = {
             loader: require.resolve("awesome-typescript-loader"),
             options: {
               transpileOnly: true,
+              useCache: true,
             },
           },
         ],
@@ -107,12 +110,26 @@ module.exports = {
       {
         test: /\.jsx?$/,
         include: /node_modules/,
-        use: ["react-hot-loader/webpack"],
+        use: [require.resolve("react-hot-loader/webpack")],
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|jpeg|bmp|tiff)$/,
         use: [
-          { loader: "file-loader", options: { outputPath: "assets/images" } },
+          {
+            loader: require.resolve("file-loader"),
+            options: { outputPath: "assets/images" },
+          },
+        ],
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: require.resolve("html-loader"),
+          },
+          {
+            loader: require.resolve("markdown-loader"),
+          },
         ],
       },
     ],

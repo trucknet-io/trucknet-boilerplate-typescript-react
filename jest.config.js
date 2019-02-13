@@ -9,9 +9,13 @@ module.exports = {
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
   collectCoverageFrom: ["src/**/*.ts?(x)", "!src/**/*.stories.ts?(x)"],
   modulePaths: ["<rootDir>/"],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
-    prefix: "<rootDir>/",
-  }),
+  moduleNameMapper: {
+    // https://jestjs.io/docs/en/webpack#handling-static-assets
+    "\\.md$": "<rootDir>/__mocks__/mdMock.js",
+    ...pathsToModuleNameMapper(compilerOptions.paths || {}, {
+      prefix: "<rootDir>/",
+    }),
+  },
   globals: {
     "ts-jest": { isolatedModules: true },
   },

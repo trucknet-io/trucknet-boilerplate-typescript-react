@@ -1,7 +1,7 @@
 import "jest-dom/extend-expect";
 import * as React from "react";
 import { cleanup, fireEvent, render } from "react-testing-library";
-import HelloWorld from "src/components/HelloWorld";
+import HelloWorld from "./HelloWorld";
 
 const message = "test";
 const color = "red";

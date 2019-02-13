@@ -10,7 +10,8 @@
     "jsx": "react",
     "lib": ["es2015", "es2017", "dom"],
     "baseUrl": ".",
-    "typeRoots": ["node_modules/@types", "./definitions"]
+    "typeRoots": ["node_modules/@types", "./@types"],
+    "isolatedModules": true
   },
-  "include": ["definitions/**/*.d.ts", "src/**/*", "__tests__/**/*"]
+  "files": ["./src/index.tsx"]
 }

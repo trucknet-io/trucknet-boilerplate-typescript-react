@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as textMd from "src/components/HelloWorld/text.md";
 
 type Props = {
   message: string;
@@ -21,6 +22,8 @@ class HelloWorld extends React.PureComponent<Props> {
         <button data-testid="counter-button" onClick={this.updateCounter}>
           {counter}
         </button>
+        {/* tslint:disable-next-line react-no-dangerous-html */}
+        <div dangerouslySetInnerHTML={{ __html: textMd }} />
       </div>
     );
   }

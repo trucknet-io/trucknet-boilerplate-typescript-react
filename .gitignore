@@ -9,6 +9,9 @@
 # production
 /www
 
+# webpack
+.awcache
+
 # misc
 .DS_Store
 .env.local
