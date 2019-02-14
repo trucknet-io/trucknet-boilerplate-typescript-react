@@ -7,11 +7,11 @@ import { withInfo } from "@storybook/addon-info";
 import { checkA11y } from "@storybook/addon-a11y";
 import { withKnobs } from "@storybook/addon-knobs";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
-import { withConsole } from "@storybook/addon-console";
+import "@storybook/addon-console";
 
 addDecorator(
   withInfo({
-    inline: true,
+    inline: false,
   }),
 );
 addDecorator(withSmartKnobs);
@@ -23,7 +23,6 @@ addDecorator((story) =>
     children: React.createElement(CssBaseline, { children: story() }),
   }),
 );
-addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 
 const req = require.context("../src", true, /\.stories\.tsx$/);
 function loadStories() {
