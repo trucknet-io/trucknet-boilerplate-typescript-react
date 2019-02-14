@@ -3,15 +3,18 @@ const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const WebpackBar = require("webpackbar");
 const ProgressPlugin = require("webpack").ProgressPlugin;
 
-module.exports = (baseConfig, env, config) => {
-  config.plugins = config.plugins.filter(
+module.exports = (baseConfig, env) => {
+  baseConfig.module.rules = baseConfig.module.rules.filter(
+    (r) => r.test.toString() !== /\.md$/.toString(),
+  );
+  baseConfig.plugins = baseConfig.plugins.filter(
     (m) => m instanceof ProgressPlugin === false,
   ); // We are using Webpackbar, so no need in ProgressPlugin
-  config.plugins.push(new HardSourceWebpackPlugin());
-  config.plugins.push(new WebpackBar());
-  config.resolve.plugins = [new TsconfigPathsPlugin()];
+  baseConfig.plugins.push(new HardSourceWebpackPlugin());
+  baseConfig.plugins.push(new WebpackBar());
+  baseConfig.resolve.plugins = [new TsconfigPathsPlugin()];
 
-  config.module.rules.push({
+  baseConfig.module.rules.push({
     test: /\.(ts|tsx)$/,
     use: [
       {
@@ -27,6 +30,19 @@ module.exports = (baseConfig, env, config) => {
     ],
   });
 
-  config.resolve.extensions.unshift(".ts", ".tsx");
-  return config;
+  baseConfig.module.rules.push({
+    test: /\.md$/,
+    use: [
+      {
+        loader: require.resolve("html-loader"),
+      },
+      {
+        loader: require.resolve("markdown-loader"),
+      },
+    ],
+  });
+
+  baseConfig.resolve.extensions.unshift(".ts", ".tsx");
+
+  return baseConfig;
 };
