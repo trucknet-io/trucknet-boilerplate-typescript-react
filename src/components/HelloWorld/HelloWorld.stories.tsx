@@ -1,9 +1,16 @@
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import HelloWorld from "src/components/HelloWorld";
+import HelloWorld from "./HelloWorld";
+import * as READMEMd from "./README.md";
 
 const stories = storiesOf("HelloWorld", module);
+
+stories.addParameters({
+  info: {
+    text: READMEMd,
+  },
+});
 
 stories.add("With black message default", () => (
   <HelloWorld color="black" message="default" onChange={action("onChange")} />

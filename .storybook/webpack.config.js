@@ -32,12 +32,22 @@ module.exports = (baseConfig, env) => {
 
   baseConfig.module.rules.push({
     test: /\.md$/,
+    exclude: /README\.md/,
     use: [
       {
         loader: require.resolve("html-loader"),
       },
       {
         loader: require.resolve("markdown-loader"),
+      },
+    ],
+  });
+
+  baseConfig.module.rules.push({
+    test: /README\.md$/,
+    use: [
+      {
+        loader: require.resolve("raw-loader"),
       },
     ],
   });
