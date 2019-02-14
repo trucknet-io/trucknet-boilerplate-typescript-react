@@ -7,14 +7,15 @@ import { withInfo } from "@storybook/addon-info";
 import { checkA11y } from "@storybook/addon-a11y";
 import { withKnobs } from "@storybook/addon-knobs";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
+import { withConsole } from "@storybook/addon-console";
 
-addDecorator(withSmartKnobs);
-addDecorator(withKnobs);
 addDecorator(
   withInfo({
     inline: true,
   }),
 );
+addDecorator(withSmartKnobs);
+addDecorator(withKnobs);
 addDecorator(checkA11y);
 addDecorator((story) =>
   React.createElement(MuiThemeProvider, {
@@ -22,6 +23,7 @@ addDecorator((story) =>
     children: React.createElement(CssBaseline, { children: story() }),
   }),
 );
+addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 
 const req = require.context("../src", true, /\.stories\.tsx$/);
 function loadStories() {
