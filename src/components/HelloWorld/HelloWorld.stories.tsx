@@ -10,6 +10,7 @@ stories.addParameters({
   info: {
     text: READMEMd,
   },
+  // TODO typings disappered
 });
 
 stories.add("With black message default", () => (

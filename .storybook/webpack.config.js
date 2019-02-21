@@ -2,6 +2,7 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const WebpackBar = require("webpackbar");
 const ProgressPlugin = require("webpack").ProgressPlugin;
+const filesExts = require("../config/filesExts");
 
 module.exports = (baseConfig, env) => {
   baseConfig.module.rules = baseConfig.module.rules.filter(
@@ -48,6 +49,16 @@ module.exports = (baseConfig, env) => {
     use: [
       {
         loader: require.resolve("raw-loader"),
+      },
+    ],
+  });
+
+  baseConfig.module.rules.push({
+    test: new RegExp(`\.(${filesExts.join("|")})$`),
+    use: [
+      {
+        loader: require.resolve("file-loader"),
+        options: { outputPath: "assets/images" },
       },
     ],
   });

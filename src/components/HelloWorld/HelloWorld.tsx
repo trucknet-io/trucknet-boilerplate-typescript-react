@@ -1,30 +1,62 @@
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+  withStyles,
+  WithStyles,
+} from "@material-ui/core";
 import * as React from "react";
-import * as textMd from "src/components/HelloWorld/text.md";
+import { styles } from "./HelloWorld.styles";
+import * as rick from "./rick.png";
+import * as textMd from "./text.md";
 
-type Props = {
+interface Props extends WithStyles<typeof styles> {
   message: string;
   color: string;
   onChange?(newValue: number): void;
-};
+}
 
-class HelloWorld extends React.PureComponent<Props> {
+export class HelloWorld extends React.PureComponent<Props> {
   public state = {
     counter: 1,
   };
 
   public render() {
-    const { color, message } = this.props;
+    const { color, message, classes } = this.props;
     const { counter } = this.state;
 
     return (
-      <div>
-        <h1 style={{ color: color }}>{message}!</h1>
-        <button data-testid="counter-button" onClick={this.updateCounter}>
-          {counter}
-        </button>
-        {/* tslint:disable-next-line react-no-dangerous-html */}
-        <div dangerouslySetInnerHTML={{ __html: textMd }} />
-      </div>
+      <Card className={classes.card}>
+        <CardActionArea>
+          <CardMedia className={classes.media} component="img" src={rick} />
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="h2"
+              style={{ color: color }}>
+              {message}!
+            </Typography>
+            {/* tslint:disable-next-line react-no-dangerous-html */}
+            <Typography
+              component="p"
+              dangerouslySetInnerHTML={{ __html: textMd }}
+            />
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button
+            data-testid="counter-button"
+            onClick={this.updateCounter}
+            color="primary">
+            {counter}
+          </Button>
+        </CardActions>
+      </Card>
     );
   }
   private updateCounter = () => {
@@ -38,4 +70,6 @@ class HelloWorld extends React.PureComponent<Props> {
   };
 }
 
-export default HelloWorld;
+const withHocs = withStyles(styles)(HelloWorld);
+
+export default withHocs;

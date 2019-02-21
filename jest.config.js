@@ -1,5 +1,6 @@
 const { pathsToModuleNameMapper } = require("ts-jest/utils");
 const { compilerOptions } = require("./tsconfig");
+const filesExts = require("./config/filesExts");
 
 module.exports = {
   preset: "ts-jest",
@@ -12,6 +13,7 @@ module.exports = {
   moduleNameMapper: {
     // https://jestjs.io/docs/en/webpack#handling-static-assets
     "\\.md$": "<rootDir>/__mocks__/mdMock.js",
+    [`\\.(${filesExts.join("|")})$`]: "<rootDir>/__mocks__/fileMock.js",
     ...pathsToModuleNameMapper(compilerOptions.paths || {}, {
       prefix: "<rootDir>/",
     }),

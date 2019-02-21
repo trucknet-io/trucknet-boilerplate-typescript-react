@@ -10,6 +10,7 @@ const RollbarSourceMapPlugin = require("rollbar-sourcemap-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const WebpackBar = require("webpackbar");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
+const filesExts = require("./config/filesExts");
 
 const paths = {
   input: "src",
@@ -113,7 +114,7 @@ module.exports = {
         use: [require.resolve("react-hot-loader/webpack")],
       },
       {
-        test: /\.(png|jpg|gif|jpeg|bmp|tiff)$/,
+        test: new RegExp(`\.(${filesExts.join("|")})$`),
         use: [
           {
             loader: require.resolve("file-loader"),
