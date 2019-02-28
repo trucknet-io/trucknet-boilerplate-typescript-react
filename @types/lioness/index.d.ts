@@ -50,13 +50,13 @@ declare module "lioness" {
       messages: {
         [locale: string]: {
           headers: Object;
-          charset: Object;
+          charset: string;
           translations: {
             [key: string]: {
               [key: string]: {
                 msgid: string;
                 msgid_plural?: string;
-                msgctxt: string;
+                msgctxt?: string;
                 msgstr?: string[];
                 comments?: {
                   reference: string;
