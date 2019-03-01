@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
-"POT-Creation-Date: Thu Feb 28 2019 13:29:20 GMT+0200 (Israel Standard Time)\n"
+"POT-Creation-Date: Fri Mar 01 2019 18:19:24 GMT+0200 (Israel Standard Time)\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? 2 "
 ": 3);\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Last-Translator: \n"
 "Language: he\n"
 
-#: src/layouts/Header.tsx:24
+#: src/layouts/Header/Header.tsx:26
 msgctxt "header.title"
 msgid "Some name"
 msgstr "כותרת כלשהי"

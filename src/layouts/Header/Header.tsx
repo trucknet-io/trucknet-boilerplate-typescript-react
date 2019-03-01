@@ -4,10 +4,12 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { T } from "lioness";
 import * as React from "react";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 const styles = {
   title: {
     margin: "0 15px",
+    flexGrow: 1,
   },
 };
 
@@ -23,6 +25,7 @@ class Header extends React.PureComponent<IProps> {
           <Typography className={classes.title} variant="h6" color="inherit">
             <T context="header.title" message="Some name" />
           </Typography>
+          <LocaleSwitcher />
         </Toolbar>
       </AppBar>
     );

@@ -8,4 +8,7 @@ export const styles = createStyles({
     // ⚠️ object-fit is not supported by IE 11.
     objectFit: "cover",
   },
+  title: {
+    marginLeft: 20, // demo of jss-rtl
+  },
 });

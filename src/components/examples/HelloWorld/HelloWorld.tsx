@@ -34,6 +34,9 @@ export class HelloWorld extends React.PureComponent<Props> {
         <CardActionArea>
           <CardMedia className={classes.media} component="img" src={rick} />
           <CardContent>
+            <Typography className={classes.title} variant="caption">
+              Demo of jss-rtl
+            </Typography>
             <Typography
               gutterBottom
               variant="h5"
@@ -69,7 +72,6 @@ export class HelloWorld extends React.PureComponent<Props> {
     }
   };
 }
-
 const withHocs = withStyles(styles)(HelloWorld);
 
 export default withHocs;

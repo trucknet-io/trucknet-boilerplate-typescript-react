@@ -12,7 +12,8 @@
     "baseUrl": ".",
     "typeRoots": ["node_modules/@types", "./@types"],
     "isolatedModules": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "target": "es5"
   },
-  "files": ["./src/index.tsx"]
+  "include": ["src/**/*", "__tests__/**/*"]
 }
