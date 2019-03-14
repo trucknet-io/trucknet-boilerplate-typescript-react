@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: trucknet-boilerplate-typescript-react 0.0.1\n"
 "Content-Type: text/plain; charset=utf-8\n"
-"POT-Creation-Date: Thu Mar 14 2019 16:23:24 GMT+0200 (Israel Standard Time)\n"
+"POT-Creation-Date: Thu Mar 14 2019 16:26:09 GMT+0200 (Israel Standard Time)\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
