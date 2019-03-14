@@ -2,12 +2,18 @@ import React from "react";
 import { addDecorator, configure } from "@storybook/react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { theme } from "src/contexts/theme";
+import { createTheme } from "src/config/theme";
 import { withInfo } from "@storybook/addon-info";
 import { checkA11y } from "@storybook/addon-a11y";
 import { withKnobs } from "@storybook/addon-knobs";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import "@storybook/addon-console";
+// import {
+//   setIntlConfig,
+//   withIntl,
+// } from "./addonds/storybook-addon-lioness/src/index";
+import * as messages from "src/i18n/translations.json";
+import { supportedLocales } from "src/config/locales";
 import { withBackgrounds } from "@storybook/addon-backgrounds";
 
 addDecorator(
@@ -36,7 +42,13 @@ addDecorator(
 addDecorator(withSmartKnobs);
 addDecorator(withKnobs);
 addDecorator(checkA11y);
+// setIntlConfig({
+//   messages: messages,
+//   locales: supportedLocales,
+// });
+// addDecorator(withIntl);
 
+const theme = createTheme("ltr");
 theme.palette.background.default = "none"; // Need for background plugin
 addDecorator((story) =>
   React.createElement(MuiThemeProvider, {

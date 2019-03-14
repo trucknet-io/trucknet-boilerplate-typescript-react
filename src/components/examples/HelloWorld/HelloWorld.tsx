@@ -9,6 +9,7 @@ import {
   withStyles,
   WithStyles,
 } from "@material-ui/core";
+import { T } from "lioness";
 import * as React from "react";
 import { styles } from "./HelloWorld.styles";
 import * as rick from "./rick.png";
@@ -19,6 +20,8 @@ interface Props extends WithStyles<typeof styles> {
   color: string;
   onChange?(newValue: number): void;
 }
+
+// TODO jss-rtl does not work
 
 export class HelloWorld extends React.PureComponent<Props> {
   public state = {
@@ -35,7 +38,7 @@ export class HelloWorld extends React.PureComponent<Props> {
           <CardMedia className={classes.media} component="img" src={rick} />
           <CardContent>
             <Typography className={classes.title} variant="caption">
-              Demo of jss-rtl
+              <T context="helloWorld" message="Demo of jss-rtl" />
             </Typography>
             <Typography
               gutterBottom
