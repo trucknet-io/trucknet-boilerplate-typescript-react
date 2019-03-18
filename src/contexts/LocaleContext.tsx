@@ -1,6 +1,8 @@
 import * as React from "react";
 import locales, { supportedLocales } from "src/config/locales";
+import * as messages from "src/i18n/translations.json";
 import { findLocale } from "src/utils/locale";
+import { addLocale, useLocale } from "ttag";
 
 export interface WithLocale {
   locale: string;
@@ -57,6 +59,11 @@ export class LocaleContextProvider extends React.Component<{}, WithLocale> {
 
   private handleLocaleChanged = (locale: string) => {
     this.changeBodyDir(locale);
+    if (locale !== "en-GB") {
+      addLocale(locale, messages[locale]);
+    }
+
+    useLocale(locale);
   };
 }
 

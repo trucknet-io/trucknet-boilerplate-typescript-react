@@ -8,12 +8,7 @@ import { checkA11y } from "@storybook/addon-a11y";
 import { withKnobs } from "@storybook/addon-knobs";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import "@storybook/addon-console";
-// import {
-//   setIntlConfig,
-//   withIntl,
-// } from "./addonds/storybook-addon-lioness/src/index";
-import * as messages from "src/i18n/translations.json";
-import { supportedLocales } from "src/config/locales";
+
 import { withBackgrounds } from "@storybook/addon-backgrounds";
 
 addDecorator(

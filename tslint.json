@@ -3,12 +3,6 @@
   "rules": {
     "use-simple-attributes": false,
     "no-empty": false,
-    "max-line-length": [
-      true,
-      {
-        "limit": 80,
-        "ignore-pattern": "^\\s+`|^\\s+\"|describe\\(\"|it\\(\"|test\\(\""
-      }
-    ]
+    "max-line-length": [false]
   }
 }

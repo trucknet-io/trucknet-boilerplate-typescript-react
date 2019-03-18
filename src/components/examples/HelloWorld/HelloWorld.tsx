@@ -9,8 +9,8 @@ import {
   withStyles,
   WithStyles,
 } from "@material-ui/core";
-import { T } from "lioness";
 import * as React from "react";
+import { t } from "ttag";
 import { styles } from "./HelloWorld.styles";
 import * as rick from "./rick.png";
 import * as textMd from "./text.md";
@@ -38,7 +38,8 @@ export class HelloWorld extends React.PureComponent<Props> {
           <CardMedia className={classes.media} component="img" src={rick} />
           <CardContent>
             <Typography className={classes.title} variant="caption">
-              <T context="helloWorld" message="Demo of jss-rtl" />
+              {/* translator: jss-rtl is a librsary name, no need to translate. */}
+              {t`Demo of jss-rtl`}
             </Typography>
             <Typography
               gutterBottom
