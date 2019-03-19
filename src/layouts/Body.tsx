@@ -1,7 +1,8 @@
 import { Theme, withStyles, WithStyles } from "@material-ui/core/styles";
 import * as React from "react";
 import Header from "src/layouts/Header";
-import Dashboard from "src/pages/Dashboard";
+// tslint:disable-next-line import-name
+import Pages from "src/pages";
 
 const styles = (theme: Theme) => ({
   layout: {
@@ -27,7 +28,7 @@ class Body extends React.Component<IProps> {
       <React.Fragment>
         <Header />
         <main className={classes.layout}>
-          <Dashboard />
+          <Pages />
         </main>
       </React.Fragment>
     );

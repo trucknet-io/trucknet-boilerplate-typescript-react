@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
-"POT-Creation-Date: Thu Mar 14 2019 16:26:09 GMT+0200 (Israel Standard Time)\n"
+"POT-Creation-Date: Tue Mar 19 2019 11:36:27 GMT+0200 (Israel Standard Time)\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? 2 "
 ": 3);\n"
@@ -18,7 +18,7 @@ msgctxt "helloWorld"
 msgid "Demo of jss-rtl"
 msgstr "דמן של jss-rtl"
 
-#: src/layouts/Header/Header.tsx:26
+#: src/layouts/Header/Header.tsx:25
 msgctxt "header.title"
 msgid "Some name"
 msgstr "כותרת כלשהי"
