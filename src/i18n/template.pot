@@ -2,13 +2,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: trucknet-boilerplate-typescript-react 0.0.1\n"
 "Content-Type: text/plain; charset=utf-8\n"
-"POT-Creation-Date: Tue Mar 19 2019 11:36:27 GMT+0200 (Israel Standard Time)\n"
+"POT-Creation-Date: Wed Mar 20 2019 13:40:12 GMT+0200 (Israel Standard Time)\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/components/examples/HelloWorld/HelloWorld.tsx:41
 msgctxt "helloWorld"
 msgid "Demo of jss-rtl"
+msgstr ""
+
+#: src/components/examples/SvgRender/SvgRender.tsx:59
+msgctxt "svg.title"
+msgid "This is Rick from SVG universe!"
+msgstr ""
+
+#: src/components/examples/SvgRender/SvgRender.tsx:71
+msgctxt "svg.changeColor"
+msgid "Change color!"
 msgstr ""
 
 #: src/layouts/Header/Header.tsx:25

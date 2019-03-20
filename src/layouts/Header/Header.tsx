@@ -30,6 +30,9 @@ class Header extends React.PureComponent<IProps> {
           <ButtonLink to="/clock" color="inherit">
             Clock
           </ButtonLink>
+          <ButtonLink to="/svg" color="inherit">
+            SVG
+          </ButtonLink>
           <LocaleSwitcher />
         </Toolbar>
       </AppBar>
