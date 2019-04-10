@@ -8,12 +8,9 @@ import { checkA11y } from "@storybook/addon-a11y";
 import { withKnobs } from "@storybook/addon-knobs";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import "@storybook/addon-console";
-// import {
-//   setIntlConfig,
-//   withIntl,
-// } from "./addonds/storybook-addon-lioness/src/index";
+import { LionessProvider } from "lioness";
 import * as messages from "src/i18n/translations.json";
-import { supportedLocales } from "src/config/locales";
+// import { supportedLocales } from "src/config/locales";
 import { withBackgrounds } from "@storybook/addon-backgrounds";
 
 addDecorator(
@@ -42,18 +39,17 @@ addDecorator(
 addDecorator(withSmartKnobs);
 addDecorator(withKnobs);
 addDecorator(checkA11y);
-// setIntlConfig({
-//   messages: messages,
-//   locales: supportedLocales,
-// });
-// addDecorator(withIntl);
 
 const theme = createTheme("ltr");
 theme.palette.background.default = "none"; // Need for background plugin
 addDecorator((story) =>
-  React.createElement(MuiThemeProvider, {
-    theme,
-    children: React.createElement(CssBaseline, { children: story() }),
+  React.createElement(LionessProvider, {
+    locale: "en",
+    messages: messages,
+    children: React.createElement(MuiThemeProvider, {
+      theme,
+      children: React.createElement(CssBaseline, { children: story() }),
+    }),
   }),
 );
 

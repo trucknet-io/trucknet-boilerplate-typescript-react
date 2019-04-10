@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
-"POT-Creation-Date: Wed Apr 10 2019 17:46:54 GMT+0300 (Israel Daylight Time)\n"
+"POT-Creation-Date: Wed Apr 10 2019 17:55:27 GMT+0300 (Israel Daylight Time)\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? 2 "
 ": 3);\n"
