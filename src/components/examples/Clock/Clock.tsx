@@ -15,7 +15,7 @@ type State = {
 
 interface Props extends WithStyles<typeof styles> {}
 
-class Clock extends React.Component<Props, State> {
+export class Clock extends React.Component<Props, State> {
   private timer: NodeJS.Timeout;
   constructor(props: Props) {
     super(props);
@@ -49,4 +49,4 @@ class Clock extends React.Component<Props, State> {
   };
 }
 
-export default withStyles(styles, { flip: true })(Clock);
+export default withStyles(styles)(Clock);
