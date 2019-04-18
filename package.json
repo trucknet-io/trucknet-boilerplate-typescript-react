@@ -85,7 +85,7 @@
     "@types/jest": "^23.3.14",
     "@types/storybook__addon-actions": "^3.4.2",
     "@types/storybook__react": "^4.0.1",
-    "gettext-utils": "^1.1.2",
+    "gettext-utils": "^1.2.0",
     "hard-source-webpack-plugin": "^0.13.1",
     "jest": "^23.6.0",
     "jest-date-mock": "^1.0.7",
