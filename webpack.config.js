@@ -6,7 +6,6 @@ const CaseSensitivePathsWebpackPlugin = require("case-sensitive-paths-webpack-pl
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
-const RollbarSourceMapPlugin = require("rollbar-sourcemap-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const WebpackBar = require("webpackbar");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
@@ -16,8 +15,11 @@ const paths = {
   input: "src",
   static: "public",
   output: "www",
-  main: "./src/index.tsx",
   template: "src/index.ejs",
+  entry: {
+    errorReporting: "./src/errorReporting.ts",
+    main: "./src/index.tsx",
+  },
 };
 
 const TITLE = "Boilerplate";
@@ -31,8 +33,10 @@ const plugins = [
   new CopyWebpackPlugin([paths.static]),
   new CaseSensitivePathsWebpackPlugin({ debug: false }),
   new webpack.EnvironmentPlugin({
-    ROLLBAR_CLIENT_TOKEN: null, // not required, so it is null
-    ROLLBAR_ENV: undefined,
+    // null for not required variables
+    // undefined - for required
+    SENTRY_DSN: null,
+    SENTRY_ENV: null,
   }),
   new HtmlWebpackPlugin({
     template: path.resolve(__dirname, paths.template),
@@ -56,19 +60,8 @@ if (DEV) {
   );
 }
 
-if (process.env.ROLLBAR_SERVER_TOKEN && process.env.BASE_URL) {
-  plugins.push(
-    new RollbarSourceMapPlugin({
-      accessToken: process.env.ROLLBAR_SERVER_TOKEN,
-      version: pjson.version,
-      publicPath: process.env.BASE_URL,
-      ignoreErrors: true,
-    }),
-  );
-}
-
 module.exports = {
-  entry: paths.main,
+  entry: paths.entry,
   devtool: DEV ? "cheap-module-eval-source-map" : "hidden-source-map", // https://webpack.js.org/configuration/devtool/
   devServer: {
     // https://webpack.js.org/configuration/dev-server/

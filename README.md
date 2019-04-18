@@ -38,7 +38,6 @@ If you need any inspiration on how to write tests with different libraries from 
 - favicons-webpack-plugin
 - html-webpack-plugin
 - file-loader
-- rollbar-sourcemap-webpack-plugin
 - webpack-bundle-analyzer
 
 ### Dev
