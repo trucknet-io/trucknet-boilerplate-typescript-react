@@ -74,6 +74,7 @@
     "webpack-bundle-analyzer": "^3.3.2"
   },
   "devDependencies": {
+    "@sentry/webpack-plugin": "^1.6.2",
     "@storybook/addon-a11y": "^5.0.10",
     "@storybook/addon-actions": "^5.0.10",
     "@storybook/addon-backgrounds": "^5.0.10",

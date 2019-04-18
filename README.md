@@ -20,6 +20,18 @@ This repo includes [Storybook](https://storybook.js.org/) - a great way to devel
 
 If you need any inspiration on how to write tests with different libraries from react world (`react-redux`, `react-router`) you can always look at [Examples](https://github.com/kentcdodds/react-testing-library#examples) and [official documentation](https://testing-library.com/docs/intro).
 
+## Bootstrap!
+
+1. `git clone git@github.com:trucknet-io/trucknet-boilerplate-typescript-react.git project-name`
+1. `cd project-name`
+1. `rm -rf .git`
+1. `git init`
+1. `git remote add origin`
+1. `git flow init`
+1. Edit `package.json` to change name (upper-snake-case), description and git repository of the project
+1. Edit `.sentryclirc` to put your sentry project name and API token. To get API token you can use `npx -p @sentry/cli sentry-cli --url https://sentry.cluster-staging.trucknet.io login`
+1. Edit `.envcmdrc` to put your Sentry DSN
+
 ## Added libraries
 
 ### Frontend

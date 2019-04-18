@@ -10,6 +10,7 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const WebpackBar = require("webpackbar");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const filesExts = require("./config/filesExts");
+const errorReportingPlugin = require("./config/errorReporting/webpack");
 
 const paths = {
   input: "src",
@@ -17,7 +18,7 @@ const paths = {
   output: "www",
   template: "src/index.ejs",
   entry: {
-    errorReporting: "./src/errorReporting.ts",
+    errorReporting: "./config/errorReporting/frontend.js",
     main: "./src/index.tsx",
   },
 };
@@ -48,6 +49,7 @@ const plugins = [
       collapseWhitespace: false,
     },
   }),
+  errorReportingPlugin,
 ];
 
 if (DEV) {

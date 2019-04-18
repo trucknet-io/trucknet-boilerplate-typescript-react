@@ -1,0 +1,7 @@
+[defaults]
+url = https://sentry.cluster-staging.trucknet.io/
+org = trucknet
+project = xxx
+
+[auth]
+token = xxx
