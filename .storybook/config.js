@@ -1,7 +1,5 @@
 import React from "react";
 import { addDecorator, configure } from "@storybook/react";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { MuiThemeProvider } from "@material-ui/core/styles";
 import { createTheme } from "src/config/theme";
 import { withInfo } from "@storybook/addon-info";
 import { withA11y } from "@storybook/addon-a11y";
@@ -9,14 +7,20 @@ import "@storybook/addon-console";
 import { LionessProvider } from "lioness";
 import messages from "src/i18n/translations.json";
 // import { supportedLocales } from "src/config/locales";
-import { withBackgrounds } from "@storybook/addon-backgrounds";
 import { addParameters } from "@storybook/react";
+import { muiTheme } from "storybook-addon-material-ui";
+
+const themeLtr = createTheme("ltr");
+themeLtr.themeName = "Main";
 
 addDecorator(
   withInfo({
     inline: false,
   }),
 );
+
+addDecorator(muiTheme([themeLtr]));
+addDecorator(withA11y);
 
 addParameters({
   backgrounds: [
@@ -36,18 +40,11 @@ addParameters({
   ],
 });
 
-addDecorator(withA11y);
-
-const theme = createTheme("ltr");
-theme.palette.background.default = "none"; // Need for background plugin
 addDecorator((story) =>
   React.createElement(LionessProvider, {
     locale: "en-GB",
     messages: messages,
-    children: React.createElement(MuiThemeProvider, {
-      theme,
-      children: React.createElement(CssBaseline, { children: story() }),
-    }),
+    children: story(),
   }),
 );
 
