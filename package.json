@@ -38,7 +38,7 @@
     "test:ci": "npm run test -- --coverage",
     "clean": "rimraf '{src,__tests__}/**/*.js?(x)?(.map)' 'node_modules/.cache'",
     "prerelease": "gettext-utils validate-strings",
-    "release": "./extra/deployment/release.sh"
+    "release": "./config/deployment/release.sh"
   },
   "dependencies": {
     "@babel/core": "~7.4.0",
