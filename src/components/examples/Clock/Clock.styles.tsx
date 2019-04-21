@@ -1,7 +1,8 @@
-import { createStyles } from "@material-ui/core";
+import { createStyles, Theme } from "@material-ui/core";
 
-export const styles = createStyles({
-  card: {
-    maxWidth: 345,
-  },
-});
+export const styles = (theme: Theme) =>
+  createStyles({
+    card: {
+      maxWidth: 345,
+    },
+  });
