@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"POT-Creation-Date: Thu Apr 18 2019 16:56:56 GMT+0300 (Israel Daylight Time)\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? 2 "
+": 3);\n"
+"Project-Id-Version: trucknet-boilerplate-typescript-react 0.0.1\n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 2.2.1\n"
+"Last-Translator: \n"
+"Language: he\n"
+
+#: src/components/examples/HelloWorld/HelloWorld.tsx:41
+msgctxt "helloWorld"
+msgid "Demo of jss-rtl"
+msgstr "דמן של jss-rtl"
+
+#: src/components/examples/SvgRender/SvgRender.tsx:59
+msgctxt "svg.title"
+msgid "This is Rick from SVG universe!"
+msgstr ""
+
+#: src/components/examples/SvgRender/SvgRender.tsx:71
+msgctxt "svg.changeColor"
+msgid "Change color!"
+msgstr ""
+
+#: src/layouts/Header/Header.tsx:25
+msgctxt "header.title"
+msgid "Some name"
+msgstr "כותרת כלשהי"

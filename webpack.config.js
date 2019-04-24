@@ -4,16 +4,23 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const CaseSensitivePathsWebpackPlugin = require("case-sensitive-paths-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-const RollbarSourceMapPlugin = require("rollbar-sourcemap-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const WebpackBar = require("webpackbar");
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
+const filesExts = require("./config/filesExts");
+const errorReportingPlugin = require("./config/errorReporting/webpack");
 
 const paths = {
   input: "src",
   static: "public",
   output: "www",
-  main: "./src/index.tsx",
   template: "src/index.ejs",
+  entry: {
+    errorReporting: "./config/errorReporting/frontend.js",
+    main: "./src/index.tsx",
+  },
 };
 
 const TITLE = "Boilerplate";
@@ -21,13 +28,16 @@ const LANGUAGES_REGEX = new RegExp("en,he".split(",").join("|"));
 const DEV = process.env.NODE_ENV !== "production";
 
 const plugins = [
+  new WebpackBar(),
   new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, LANGUAGES_REGEX),
   new CleanWebpackPlugin([paths.output]),
   new CopyWebpackPlugin([paths.static]),
   new CaseSensitivePathsWebpackPlugin({ debug: false }),
   new webpack.EnvironmentPlugin({
-    ROLLBAR_CLIENT_TOKEN: null, // not required, so it is null
-    ROLLBAR_ENV: undefined,
+    // null for not required variables
+    // undefined - for required
+    SENTRY_DSN: null,
+    SENTRY_ENV: null,
   }),
   new HtmlWebpackPlugin({
     template: path.resolve(__dirname, paths.template),
@@ -39,29 +49,21 @@ const plugins = [
       collapseWhitespace: false,
     },
   }),
+  errorReportingPlugin,
 ];
 
 if (DEV) {
   plugins.push(new webpack.NamedModulesPlugin());
-  plugins.push(new webpack.HotModuleReplacementPlugin());
   plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+  plugins.push(new HardSourceWebpackPlugin());
 } else {
-  plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: "static" }));
-}
-
-if (process.env.ROLLBAR_SERVER_TOKEN && process.env.BASE_URL) {
   plugins.push(
-    new RollbarSourceMapPlugin({
-      accessToken: process.env.ROLLBAR_SERVER_TOKEN,
-      version: pjson.version,
-      publicPath: process.env.BASE_URL,
-      ignoreErrors: true,
-    }),
+    new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: "static" }),
   );
 }
 
 module.exports = {
-  entry: paths.main,
+  entry: paths.entry,
   devtool: DEV ? "cheap-module-eval-source-map" : "hidden-source-map", // https://webpack.js.org/configuration/devtool/
   devServer: {
     // https://webpack.js.org/configuration/dev-server/
@@ -69,6 +71,12 @@ module.exports = {
     contentBase: path.join(__dirname, paths.static),
     historyApiFallback: true,
     hot: true,
+    watchOptions: {
+      poll: 1000,
+      aggregateTimeout: 500,
+      ignored: ["node_modules", "dist"],
+    },
+    stats: "minimal",
   },
   mode: DEV ? "development" : "production",
   output: {
@@ -90,13 +98,35 @@ module.exports = {
             loader: require.resolve("awesome-typescript-loader"),
             options: {
               transpileOnly: true,
+              useCache: true,
             },
           },
         ],
       },
       {
-        test: /\.(png|jpg|gif)$/,
-        use: [{ loader: "file-loader", options: { outputPath: "assets/images" } }],
+        test: /\.jsx?$/,
+        include: /node_modules/,
+        use: [require.resolve("react-hot-loader/webpack")],
+      },
+      {
+        test: new RegExp(`\.(${filesExts.join("|")})$`),
+        use: [
+          {
+            loader: require.resolve("file-loader"),
+            options: { outputPath: "assets/images" },
+          },
+        ],
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: require.resolve("html-loader"),
+          },
+          {
+            loader: require.resolve("markdown-loader"),
+          },
+        ],
       },
     ],
   },

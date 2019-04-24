@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"POT-Creation-Date: Thu Apr 18 2019 16:56:56 GMT+0300 (Israel Daylight Time)\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Project-Id-Version: trucknet-boilerplate-typescript-react 0.0.1\n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 2.2.1\n"
+"Last-Translator: \n"
+"Language: ru\n"
+
+#: src/components/examples/HelloWorld/HelloWorld.tsx:41
+msgctxt "helloWorld"
+msgid "Demo of jss-rtl"
+msgstr "Демонстрация работы плагина jss-rtl"
+
+#: src/components/examples/SvgRender/SvgRender.tsx:59
+msgctxt "svg.title"
+msgid "This is Rick from SVG universe!"
+msgstr ""
+
+#: src/components/examples/SvgRender/SvgRender.tsx:71
+msgctxt "svg.changeColor"
+msgid "Change color!"
+msgstr ""
+
+#: src/layouts/Header/Header.tsx:25
+msgctxt "header.title"
+msgid "Some name"
+msgstr "Какое-то название"
