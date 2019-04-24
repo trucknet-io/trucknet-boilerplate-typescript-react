@@ -1,17 +1,12 @@
-import React from "react";
 import { addDecorator, configure } from "@storybook/react";
-import { createTheme } from "src/config/theme";
 import { withInfo } from "@storybook/addon-info";
 import { withA11y } from "@storybook/addon-a11y";
 import "@storybook/addon-console";
-import { LionessProvider } from "lioness";
+import { MuiLocaleProvider } from "src/layouts/App/MuiLocaleProvider";
 import messages from "src/i18n/translations.json";
-// import { supportedLocales } from "src/config/locales";
+import { supportedLocales } from "src/config/locales";
 import { addParameters } from "@storybook/react";
-import { muiTheme } from "storybook-addon-material-ui";
-
-const themeLtr = createTheme("ltr");
-themeLtr.themeName = "Main";
+import { withI18n } from "@storybook/addon-i18n";
 
 addDecorator(
   withInfo({
@@ -19,8 +14,8 @@ addDecorator(
   }),
 );
 
-addDecorator(muiTheme([themeLtr]));
 addDecorator(withA11y);
+addDecorator(withI18n);
 
 addParameters({
   backgrounds: [
@@ -38,15 +33,14 @@ addParameters({
     { name: "Lightning Yellow", value: "#F9A825" },
     { name: "Torch Red", value: "#FF1744" },
   ],
+  i18n: {
+    provider: MuiLocaleProvider,
+    providerProps: {
+      messages,
+    },
+    supportedLocales,
+  },
 });
-
-addDecorator((story) =>
-  React.createElement(LionessProvider, {
-    locale: "en-GB",
-    messages: messages,
-    children: story(),
-  }),
-);
 
 const req = require.context("../src", true, /\.stories\.tsx$/);
 function loadStories() {
