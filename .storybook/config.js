@@ -6,7 +6,7 @@ import { MuiLocaleProvider } from "src/layouts/App/MuiLocaleProvider";
 import messages from "src/i18n/translations.json";
 import { supportedLocales } from "src/config/locales";
 import { addParameters } from "@storybook/react";
-import { withI18n } from "@storybook/addon-i18n";
+import { withI18n } from "storybook-addon-i18n";
 
 addDecorator(
   withInfo({
