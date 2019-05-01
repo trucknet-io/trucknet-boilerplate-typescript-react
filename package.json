@@ -1,6 +1,6 @@
 {
   "name": "trucknet-boilerplate-typescript-react",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Boilerplate for react project on typescript",
   "engines": {
     "node": "~10.14.0",
