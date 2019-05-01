@@ -95,7 +95,7 @@
     "react-hot-loader": "^4.8.4",
     "react-testing-library": "~6.1.0",
     "rimraf": "^2.6.3",
-    "storybook-addon-material-ui": "^0.9.0-alpha.18",
+    "storybook-addon-i18n": "^5.0.0",
     "trucknet-commit": "^1.4.3",
     "ts-jest": "^24.0.0",
     "tslint": "^5.16.0",
