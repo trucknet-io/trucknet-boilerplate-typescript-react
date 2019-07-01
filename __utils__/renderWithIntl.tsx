@@ -1,12 +1,12 @@
 import { LionessProvider } from "lioness";
 import * as React from "react";
 import { render } from "react-testing-library";
-import * as messages from "src/i18n/translations.json";
+import translationsJson from "src/i18n/translations.json";
 
 const renderWithIntl = (ui: React.ReactElement, { locale = "en-GB" } = {}) => {
   return {
     ...render(
-      <LionessProvider locale={locale} messages={messages}>
+      <LionessProvider locale={locale} messages={translationsJson}>
         {ui}
       </LionessProvider>,
     ),

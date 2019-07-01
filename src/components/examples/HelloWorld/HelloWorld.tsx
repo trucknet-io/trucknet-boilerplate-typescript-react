@@ -12,8 +12,8 @@ import {
 import { T } from "lioness";
 import * as React from "react";
 import { styles } from "./HelloWorld.styles";
-import * as rick from "./rick.png";
-import * as textMd from "./text.md";
+import rickPng from "./rick.png";
+import textMd from "./text.md";
 
 interface Props extends WithStyles<typeof styles> {
   message: string;
@@ -35,7 +35,7 @@ export class HelloWorld extends React.PureComponent<Props> {
     return (
       <Card className={classes.card}>
         <CardActionArea>
-          <CardMedia className={classes.media} component="img" src={rick} />
+          <CardMedia className={classes.media} component="img" src={rickPng} />
           <CardContent>
             <Typography className={classes.title} variant="caption">
               <T context="helloWorld" message="Demo of jss-rtl" />

@@ -6,13 +6,13 @@ import JssProvider from "react-jss/lib/JssProvider";
 import jss from "src/config/jss";
 import { createTheme } from "src/config/theme";
 import { WithLocale, withLocale } from "src/contexts/LocaleContext";
-import * as messages from "src/i18n/translations.json";
+import translationsJson from "src/i18n/translations.json";
 
 export class MuiLocaleProvider extends React.PureComponent<WithLocale> {
   public render() {
     const { locale, direction } = this.props;
     return (
-      <LionessProvider locale={locale} messages={messages}>
+      <LionessProvider locale={locale} messages={translationsJson}>
         <MuiThemeProvider theme={createTheme(direction)}>
           <JssProvider {...jss}>
             <React.Fragment>

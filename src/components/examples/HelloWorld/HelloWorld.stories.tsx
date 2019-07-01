@@ -2,7 +2,7 @@ import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import HelloWorld from "./HelloWorld";
-import * as READMEMd from "./README.md";
+import READMEMd from "./README.md";
 
 const stories = storiesOf("HelloWorld", module);
 
