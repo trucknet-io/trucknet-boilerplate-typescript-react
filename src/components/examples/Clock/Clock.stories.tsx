@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { Clock } from "./Clock";
-import * as READMEMd from "./README.md";
+import READMEMd from "./README.md";
 
 const stories = storiesOf("Clock", module);
 

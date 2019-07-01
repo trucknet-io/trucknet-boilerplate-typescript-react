@@ -12,7 +12,7 @@ import { T } from "lioness";
 import * as React from "react";
 // tslint:disable-next-line import-name
 import ReactSVG from "react-svg";
-import * as rick from "./rick.svg";
+import rickSvg from "./rick.svg";
 import { styles } from "./SvgRender.styles";
 
 const colors = {
@@ -52,7 +52,7 @@ export class SvgRender extends React.PureComponent<Props, State> {
           <ReactSVG
             svgClassName={classes.svg}
             svgStyle={{ fill: this.getColorValue(color) }}
-            src={rick}
+            src={rickSvg}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
