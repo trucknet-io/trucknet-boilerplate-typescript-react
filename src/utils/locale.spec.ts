@@ -2,7 +2,7 @@ import { findLocale, getDateFnsLocale } from "./locale";
 
 const supportedLocales = ["en-GB", "en-AU"];
 
-let consoleWarnSpy: jest.Mock;
+let consoleWarnSpy: jest.SpyInstance;
 
 describe("findLocale", () => {
   beforeAll(() => {

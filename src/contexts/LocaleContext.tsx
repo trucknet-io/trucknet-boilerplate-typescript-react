@@ -14,6 +14,8 @@ const { Provider, Consumer } = React.createContext<WithLocale>({
   changeLocale: (locale: string) => locale,
 });
 
+export { Provider as RawLocaleProvider };
+
 export class LocaleContextProvider extends React.Component<{}, WithLocale> {
   constructor(props: {}) {
     super(props);
@@ -69,7 +71,7 @@ export const withLocale = <
   return (props: R) => {
     return (
       // tslint:disable-next-line no-any
-      <Consumer>{(ctx) => <Component {...ctx} {...props as any} />}</Consumer>
+      <Consumer>{(ctx) => <Component {...ctx} {...(props as any)} />}</Consumer>
     );
   };
 };
