@@ -1,6 +1,6 @@
 {
   "name": "trucknet-boilerplate-typescript-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Boilerplate for react project on typescript",
   "engines": {
     "node": "~10.14.0",
@@ -24,6 +24,7 @@
     "prestart": "gettext-utils import-strings",
     "prebuild": "gettext-utils import-strings",
     "prestorybook": "gettext-utils import-strings",
+    "prelint": "gettext-utils import-strings",
     "precommit": "gettext-utils export-strings --default-locale=en-GB && git add src/i18n/*.po* && lint-staged && npm run lint",
     "commit": "commit-prompt --no-verify",
     "lint": "npm run lint:tsc && npm run lint:tslint",
