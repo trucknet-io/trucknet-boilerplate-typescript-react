@@ -8,7 +8,6 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const WebpackBar = require("webpackbar");
-const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const filesExts = require("./config/filesExts");
 const errorReportingPlugin = require("./config/errorReporting/webpack");
 
@@ -54,6 +53,8 @@ const plugins = [
 ];
 
 if (DEV) {
+  const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
+
   plugins.push(new webpack.NamedModulesPlugin());
   plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
   !E2E && plugins.push(new HardSourceWebpackPlugin());
