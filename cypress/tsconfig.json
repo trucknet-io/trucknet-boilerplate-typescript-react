@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "lib": ["es2015", "es2017", "dom"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "jsx": "react",
+    "allowJs": true,
+    "types": ["cypress", "node", "../@testing-library/cypress/typings"],
+    "typeRoots": ["../node_modules/@types", "../@types"]
+  },
+  "include": [
+    // spec files
+    "./**/*.ts"
+  ]
+}

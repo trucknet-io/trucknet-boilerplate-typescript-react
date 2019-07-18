@@ -26,6 +26,7 @@ const paths = {
 const TITLE = "Boilerplate";
 const LANGUAGES_REGEX = new RegExp("en,he".split(",").join("|"));
 const DEV = process.env.NODE_ENV !== "production";
+const E2E = !!process.env.E2E;
 
 const plugins = [
   new WebpackBar(),
@@ -55,7 +56,7 @@ const plugins = [
 if (DEV) {
   plugins.push(new webpack.NamedModulesPlugin());
   plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
-  plugins.push(new HardSourceWebpackPlugin());
+  !E2E && plugins.push(new HardSourceWebpackPlugin());
 } else {
   plugins.push(
     new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: "static" }),
