@@ -37,7 +37,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "jest --detectOpenHandles",
     "test:ci": "npm run test -- --coverage",
-    "clean": "rimraf '{src,__tests__}/**/*.js?(x)?(.map)' 'node_modules/.cache'",
+    "clean": "rimraf '{src,__tests__}/**/*.js?(x)?(.map)' 'node_modules/.cache' '.awcache'",
     "prerelease": "gettext-utils validate-strings",
     "release": "./config/deployment/release.sh"
   },
