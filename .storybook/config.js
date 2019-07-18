@@ -1,6 +1,7 @@
 import { addDecorator, configure } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { withA11y } from "@storybook/addon-a11y";
+import { withKnobs } from "@storybook/addon-knobs";
 import "@storybook/addon-console";
 import StorybookLocaleProvider from "src/layouts/App/StorybookLocaleProvider";
 import messages from "src/i18n/translations.json";
@@ -13,7 +14,7 @@ addDecorator(
     inline: false,
   }),
 );
-
+addDecorator(withKnobs);
 addDecorator(withA11y);
 addDecorator(withI18n);
 
