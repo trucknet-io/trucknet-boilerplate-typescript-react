@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
-"POT-Creation-Date: Thu Apr 18 2019 16:56:56 GMT+0300 (Israel Daylight Time)\n"
+"POT-Creation-Date: Thu Jul 18 2019 18:04:21 GMT+0300 (Israel Daylight Time)\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Project-Id-Version: trucknet-boilerplate-typescript-react 0.0.1\n"
+"Project-Id-Version: trucknet-boilerplate-typescript-react 0.1.1\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -12,22 +12,22 @@ msgstr ""
 "Last-Translator: \n"
 "Language: en-GB\n"
 
-#: src/components/examples/HelloWorld/HelloWorld.tsx:41
+#: src/components/examples/HelloWorld/HelloWorld.tsx:39
 msgctxt "helloWorld"
 msgid "Demo of jss-rtl"
 msgstr "Demo of jss-rtl"
 
-#: src/components/examples/SvgRender/SvgRender.tsx:59
+#: src/components/examples/SvgRender/SvgRender.tsx:57
 msgctxt "svg.title"
 msgid "This is Rick from SVG universe!"
 msgstr "This is Rick from SVG universe!"
 
-#: src/components/examples/SvgRender/SvgRender.tsx:71
+#: src/components/examples/SvgRender/SvgRender.tsx:69
 msgctxt "svg.changeColor"
 msgid "Change color!"
 msgstr "Change color!"
 
-#: src/layouts/Header/Header.tsx:25
+#: src/layouts/Header/Header.tsx:28
 msgctxt "header.title"
 msgid "Some name"
 msgstr "Some name"

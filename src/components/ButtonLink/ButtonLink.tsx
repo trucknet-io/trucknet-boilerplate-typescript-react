@@ -1,5 +1,4 @@
-import { Button } from "@material-ui/core";
-import { ButtonProps } from "@material-ui/core/Button";
+import Button, { ButtonProps } from "@material-ui/core/Button";
 import { withStyles, WithStyles } from "@material-ui/core/styles";
 import { LocationDescriptor } from "history";
 import * as React from "react";
