@@ -1,11 +1,16 @@
-import { format, Locale } from "date-fns";
-import * as locales from "date-fns/locale";
+import { Locale } from "date-fns";
+import format from "date-fns/format";
+import enGB from "date-fns/locale/en-GB";
+import he from "date-fns/locale/he";
+import ru from "date-fns/locale/ru";
 import * as React from "react";
-import { getDateFnsLocale } from "src/utils/locale";
 
 import { WithLocale, withLocale } from "src/contexts/LocaleContext";
+import { getDateFnsLocale } from "src/utils/locale";
 
-// Use only locolized date and time formats
+const locales = { "en-GB": enGB, ru, he };
+
+// Use only localized date and time formats
 // https://date-fns.org/v2.0.0-alpha.27/docs/format
 type allowedDateFormats =
   | "P"
