@@ -101,6 +101,10 @@ module.exports = {
             options: {
               transpileOnly: true,
               useCache: true,
+              getCustomTransformers: path.join(
+                __dirname,
+                "./config/polyfills.js",
+              ),
             },
           },
         ],
