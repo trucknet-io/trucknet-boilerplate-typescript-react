@@ -27,5 +27,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Compiled JS
-src/**/*.js
 src/**/*.js.map

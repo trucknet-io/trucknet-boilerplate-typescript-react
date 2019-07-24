@@ -5,7 +5,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import "@storybook/addon-console";
 import StorybookLocaleProvider from "src/layouts/App/StorybookLocaleProvider";
 import messages from "src/i18n/translations.json";
-import { supportedLocales } from "src/config/locales";
+import { SUPPORTED_LOCALES } from "src/config/locales";
 import { addParameters } from "@storybook/react";
 import { withI18n } from "storybook-addon-i18n";
 
@@ -39,7 +39,7 @@ addParameters({
     providerProps: {
       messages,
     },
-    supportedLocales,
+    SUPPORTED_LOCALES,
   },
 });
 

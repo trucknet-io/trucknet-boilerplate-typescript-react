@@ -36,7 +36,7 @@
     "postbuild": "es-check es5 './www/**/*.js'",
     "serve": "cd www && ws --port 3000 --spa index.html",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "clean": "rimraf '{src,__tests__}/**/*.js?(x)?(.map)' 'node_modules/.cache' '.awcache'",
+    "clean": "rimraf '{src,__tests__}/**/*.js?(x).map' 'node_modules/.cache' '.awcache'",
     "prerelease": "gettext-utils validate-strings",
     "release": "./config/deployment/release.sh",
     "cy:e2e": "cypress run --spec 'cypress/integration/e2e/tests/*'",

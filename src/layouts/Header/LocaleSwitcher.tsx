@@ -4,7 +4,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Language from "@material-ui/icons/Language";
 import * as React from "react";
 
-import locales, { Locale } from "src/config/locales";
+import { Locale, LOCALES } from "src/config/locales";
 import { WithLocale, withLocale } from "src/contexts/LocaleContext";
 
 type State = {
@@ -39,7 +39,7 @@ class LocaleSwitcher extends React.Component<WithLocale, State> {
           }}
           open={open}
           onClose={this.handleClose}>
-          {locales.map(this.renderLocaleMenuItem)}
+          {LOCALES.map(this.renderLocaleMenuItem)}
         </Menu>
       </div>
     );

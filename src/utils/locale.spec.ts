@@ -1,6 +1,6 @@
 import { findLocale, getDateFnsLocale } from "./locale";
 
-const supportedLocales = ["en-GB", "en-AU"];
+const SUPPORTED_LOCALES = ["en-GB", "en-AU"];
 
 let consoleWarnSpy: jest.SpyInstance;
 
@@ -16,25 +16,25 @@ describe("findLocale", () => {
   });
 
   it("should return en-GB for en-GB", () => {
-    expect(findLocale(supportedLocales, "en-GB")).toBe("en-GB");
+    expect(findLocale(SUPPORTED_LOCALES, "en-GB")).toBe("en-GB");
   });
 
   it("should return en-AU for en-AU", () => {
-    expect(findLocale(supportedLocales, "en-AU")).toBe("en-AU");
+    expect(findLocale(SUPPORTED_LOCALES, "en-AU")).toBe("en-AU");
   });
 
   it("should return en-GB for en and do a warning", () => {
-    expect(findLocale(supportedLocales, "en")).toBe("en-GB");
+    expect(findLocale(SUPPORTED_LOCALES, "en")).toBe("en-GB");
     expect(consoleWarnSpy).toBeCalledTimes(1);
   });
 
   it("should return en-GB for en-US and do a warning", () => {
-    expect(findLocale(supportedLocales, "en-US")).toBe("en-GB");
+    expect(findLocale(SUPPORTED_LOCALES, "en-US")).toBe("en-GB");
     expect(consoleWarnSpy).toBeCalledTimes(1);
   });
 
   it("Should throw LocaleNotSupported error if not found", () => {
-    expect(() => findLocale(supportedLocales, "foo")).toThrow();
+    expect(() => findLocale(SUPPORTED_LOCALES, "foo")).toThrow();
   });
 });
 
