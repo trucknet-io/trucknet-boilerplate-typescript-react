@@ -34,7 +34,7 @@
     "start": "env-cmd development webpack-dev-server --config webpack.config.js --hot",
     "build": "env-cmd production webpack --config webpack.config.js",
     "postbuild": "es-check es5 './www/**/*.js'",
-    "serve": "cd www && ws --port 3000 --spa index.html",
+    "serve": "ws --directory www --port 3000 --spa index.html",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "clean": "rimraf '{src,__tests__}/**/*.js?(x).map' 'node_modules/.cache' '.awcache'",
     "prerelease": "gettext-utils validate-strings",
