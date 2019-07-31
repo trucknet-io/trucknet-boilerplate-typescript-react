@@ -1,7 +1,10 @@
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import AppBar from "@material-ui/core/AppBar";
 import { withStyles, WithStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 import { T } from "lioness";
 import * as React from "react";
+
 import ButtonLink from "src/components/ButtonLink";
 import LocaleSwitcher from "./LocaleSwitcher";
 

@@ -1,11 +1,10 @@
-import { format, Locale } from "date-fns";
-import * as locales from "date-fns/locale";
+import format from "date-fns/format";
 import * as React from "react";
-import { getDateFnsLocale } from "src/utils/locale";
 
 import { WithLocale, withLocale } from "src/contexts/LocaleContext";
+import { DATE_FNS_LOCALES, getDateFnsLocale } from "src/utils/locale";
 
-// Use only locolized date and time formats
+// Use only localized date and time formats
 // https://date-fns.org/v2.0.0-alpha.27/docs/format
 type allowedDateFormats =
   | "P"
@@ -33,9 +32,7 @@ class FormattedDate extends React.Component<Props> {
   private formatDate = () => {
     const { date, format: formatStr, locale } = this.props;
     return format(date, formatStr, {
-      locale: (locales as { [locale: string]: Locale })[
-        getDateFnsLocale(locale)
-      ],
+      locale: DATE_FNS_LOCALES[getDateFnsLocale(locale)],
     });
   };
 }
