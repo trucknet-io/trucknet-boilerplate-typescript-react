@@ -62,7 +62,7 @@ if (DEV) {
 
   plugins.push(new webpack.NamedModulesPlugin());
   plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
-  !E2E && plugins.push(new HardSourceWebpackPlugin());
+  plugins.push(new HardSourceWebpackPlugin());
 } else {
   plugins.push(
     new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: "static" }),
