@@ -8,9 +8,9 @@ const styles = (theme: Theme) => ({
   layout: {
     paddingTop: 30,
     width: "auto",
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(theme.spacing.unit * 3 * 2 + 900)]: {
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
+    [theme.breakpoints.up(theme.spacing(6) + 900)]: {
       width: 900,
       marginLeft: "auto",
       marginRight: "auto",

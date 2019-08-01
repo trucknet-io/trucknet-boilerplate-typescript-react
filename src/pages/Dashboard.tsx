@@ -10,7 +10,7 @@ interface IProps extends WithStyles<typeof styles> {}
 class DashboardPage extends React.PureComponent<IProps> {
   public render() {
     return (
-      <Grid container spacing={24}>
+      <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
           <HelloWorld message="Hello, Dashboard!" color="#000" />
         </Grid>

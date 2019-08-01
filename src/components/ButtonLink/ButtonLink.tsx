@@ -1,14 +1,14 @@
-import { Button } from "@material-ui/core";
-import { ButtonProps } from "@material-ui/core/Button";
+import Button, { ButtonProps } from "@material-ui/core/Button";
 import { withStyles, WithStyles } from "@material-ui/core/styles";
 import { LocationDescriptor } from "history";
 import * as React from "react";
 import { NavLink, NavLinkProps } from "react-router-dom";
+
 import { styles } from "./ButtonLink.styles";
 
 interface Props
   extends WithStyles<typeof styles>,
-    Pick<ButtonProps, Exclude<keyof ButtonProps, "classes">> {
+    Omit<ButtonProps, "classes"> {
   to: LocationDescriptor;
   exact?: boolean;
   strict?: boolean;
@@ -22,6 +22,7 @@ const createLink = (navLinkProps: NavLinkProps) => ({
   // is incompatible. The property `innerRef` should not be
   // needed as the `ListItem` component already provides that
   // feature with a different interface.
+  // @ts-ignore
   return <NavLink {...navLinkProps} {...buttonProps} />;
 };
 

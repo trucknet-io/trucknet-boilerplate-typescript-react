@@ -9,7 +9,5 @@ export const createTheme = (direction: "ltr" | "rtl") =>
       primary: indigo,
       secondary: teal,
     },
-    typography: {
-      useNextVariants: true,
-    },
+    typography: {},
   });

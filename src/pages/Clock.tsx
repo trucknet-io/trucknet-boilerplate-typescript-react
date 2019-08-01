@@ -5,7 +5,7 @@ import Clock from "src/components/examples/Clock";
 class ClockPage extends React.PureComponent {
   public render() {
     return (
-      <Grid container spacing={24}>
+      <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
           <Clock />
         </Grid>

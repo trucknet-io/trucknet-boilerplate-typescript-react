@@ -1,15 +1,13 @@
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  Typography,
-  withStyles,
-  WithStyles,
-} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import { withStyles, WithStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import { T } from "lioness";
 import * as React from "react";
+
 // tslint:disable-next-line import-name
 import ReactSVG from "react-svg";
 import rickSvg from "./rick.svg";

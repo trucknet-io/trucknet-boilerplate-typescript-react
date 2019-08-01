@@ -1,5 +1,5 @@
 import * as React from "react";
-import locales, { supportedLocales } from "src/config/locales";
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "src/config/locales";
 import { findLocale } from "src/utils/locale";
 
 export interface WithLocale {
@@ -33,9 +33,9 @@ export class LocaleContextProvider extends React.Component<{}, WithLocale> {
 
   private getDefaultLocale = () => {
     if (navigator.language) {
-      return findLocale(supportedLocales, navigator.language);
+      return findLocale(SUPPORTED_LOCALES, navigator.language);
     }
-    return Object.keys(locales)[0];
+    return DEFAULT_LOCALE.code;
   };
 
   private changeBodyDir = (locale: string) =>
