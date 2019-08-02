@@ -25,6 +25,6 @@ export const DATE_FNS_LOCALES: {
   [key: string]: Locale;
 } = SUPPORTED_LOCALES.reduce((res: { [key: string]: Locale }, locale) => {
   // tslint:disable-next-line: non-literal-require
-  res[locale] = require(`date-fns/locale/${locale}.js`) as Locale;
+  res[locale] = require(`date-fns/locale/${locale}`) as Locale;
   return res;
 }, {});
