@@ -1,8 +1,4 @@
 {
   "extends": "tslint-config-trucknet-io",
-  "rules": {
-    "jsx-no-multiline-js": false,
-    "jsx-alignment": false,
-    "jsx-wrap-multiline": false
-  }
+  "rules": {}
 }
