@@ -29,7 +29,6 @@ const LANGUAGES_REGEX = new RegExp(
   `(${SUPPORTED_LOCALES.join("|")})($|\.js$|\/index\.js$)`,
 );
 const DEV = process.env.NODE_ENV !== "production";
-const E2E = !!process.env.E2E;
 
 const plugins = [
   new WebpackBar(),
