@@ -1,14 +1,8 @@
 {
   "extends": "tslint-config-trucknet-io",
   "rules": {
-    "use-simple-attributes": false,
-    "no-empty": false,
-    "max-line-length": [
-      false,
-      {
-        "limit": 80,
-        "ignore-pattern": "^\\s+`|^\\s+\"|describe\\(\"|it\\(\"|test\\(\""
-      }
-    ]
+    "jsx-no-multiline-js": false,
+    "jsx-alignment": false,
+    "jsx-wrap-multiline": false
   }
 }
