@@ -1,30 +1,41 @@
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const WebpackBar = require("webpackbar");
-const ProgressPlugin = require("webpack").ProgressPlugin;
+const webpack = require("webpack");
+
+const LANGUAGES_REGEX = require("../config/languagesRegex");
 
 module.exports = ({ config, mode }) => {
   config.module.rules = config.module.rules.filter(
     (r) => r.test.toString() !== /\.md$/.toString(),
   );
   config.plugins = config.plugins.filter(
-    (m) => m instanceof ProgressPlugin === false,
+    (m) => m instanceof webpack.ProgressPlugin === false,
   ); // We are using Webpackbar, so no need in ProgressPlugin
   config.plugins.push(new HardSourceWebpackPlugin());
   config.plugins.push(new WebpackBar());
+  config.plugins.push(
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, LANGUAGES_REGEX),
+  );
+  config.plugins.push(
+    new webpack.ContextReplacementPlugin(
+      /date-fns[/\\]locale$/,
+      LANGUAGES_REGEX,
+    ),
+  );
 
   config.resolve.plugins = [new TsconfigPathsPlugin()];
   config.resolve.extensions.unshift(".ts", ".tsx");
 
   const rules = [
     {
-      test: /\.(ts|tsx)$/,
+      test: /\.(j|t)sx?$/,
+      exclude: /node_modules/,
       use: [
         {
-          loader: require.resolve("awesome-typescript-loader"),
+          loader: "ts-loader",
           options: {
             transpileOnly: true,
-            useCache: true,
           },
         },
         {

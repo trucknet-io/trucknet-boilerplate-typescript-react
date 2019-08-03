@@ -10,8 +10,8 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const WebpackBar = require("webpackbar");
 
 const filesExts = require("./config/filesExts");
+const LANGUAGES_REGEX = require("./config/languagesRegex");
 const errorReportingPlugin = require("./config/errorReporting/webpack");
-const { SUPPORTED_LOCALES } = require("./src/config/locales/locales");
 
 const paths = {
   input: "src",
@@ -25,9 +25,6 @@ const paths = {
 };
 
 const TITLE = "Boilerplate";
-const LANGUAGES_REGEX = new RegExp(
-  `(${SUPPORTED_LOCALES.join("|")})($|\.js$|\/index\.js$)`,
-);
 const DEV = process.env.NODE_ENV !== "production";
 
 const plugins = [

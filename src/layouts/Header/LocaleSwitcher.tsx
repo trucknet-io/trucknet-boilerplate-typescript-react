@@ -16,11 +16,12 @@ class LocaleSwitcher extends React.Component<WithLocale, State> {
   public render() {
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
+    const ariaOwns = open ? "menu-appbar" : undefined;
 
     return (
       <div>
         <IconButton
-          aria-owns={open ? "menu-appbar" : undefined}
+          aria-owns={ariaOwns}
           aria-haspopup="true"
           onClick={this.handleMenu}
           color="inherit">
@@ -51,8 +52,10 @@ class LocaleSwitcher extends React.Component<WithLocale, State> {
       changeLocale(l.code);
       this.handleClose();
     };
+    const selected = locale === l.code;
+
     return (
-      <MenuItem key={l.code} selected={locale === l.code} onClick={handleClick}>
+      <MenuItem key={l.code} selected={selected} onClick={handleClick}>
         {l.localTitle} ({l.englishTitle})
       </MenuItem>
     );
