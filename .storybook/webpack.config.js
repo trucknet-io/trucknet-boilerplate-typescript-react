@@ -2,10 +2,9 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const WebpackBar = require("webpackbar");
 const webpack = require("webpack");
+const webpackConfig = require("../webpack.config");
 
-const LANGUAGES_REGEX = require("../config/languagesRegex");
-
-module.exports = ({ config, mode }) => {
+module.exports = ({ config }) => {
   config.module.rules = config.module.rules.filter(
     (r) => r.test.toString() !== /\.md$/.toString(),
   );
@@ -14,13 +13,9 @@ module.exports = ({ config, mode }) => {
   ); // We are using Webpackbar, so no need in ProgressPlugin
   config.plugins.push(new HardSourceWebpackPlugin());
   config.plugins.push(new WebpackBar());
-  config.plugins.push(
-    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, LANGUAGES_REGEX),
-  );
-  config.plugins.push(
-    new webpack.ContextReplacementPlugin(
-      /date-fns[/\\]locale$/,
-      LANGUAGES_REGEX,
+  config.plugins = config.plugins.concat(
+    webpackConfig.plugins.filter(
+      (p) => p instanceof webpack.ContextReplacementPlugin === true,
     ),
   );
 
@@ -33,7 +28,7 @@ module.exports = ({ config, mode }) => {
       exclude: /node_modules/,
       use: [
         {
-          loader: "ts-loader",
+          loader: require.resolve("ts-loader"),
           options: {
             transpileOnly: true,
           },

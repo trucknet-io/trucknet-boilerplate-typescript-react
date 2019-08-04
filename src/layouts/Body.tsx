@@ -1,5 +1,5 @@
 import { Theme, withStyles, WithStyles } from "@material-ui/core/styles";
-import * as React from "react";
+import React from "react";
 import Header from "src/layouts/Header";
 // tslint:disable-next-line import-name
 import Pages from "src/pages";

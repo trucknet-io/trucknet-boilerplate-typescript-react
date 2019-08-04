@@ -2,7 +2,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Language from "@material-ui/icons/Language";
-import * as React from "react";
+import React from "react";
 
 import { Locale, LOCALES } from "src/config/locales";
 import { WithLocale, withLocale } from "src/contexts/LocaleContext";

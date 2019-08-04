@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "src/config/locales";
 import { findLocale } from "src/utils/locale";
 

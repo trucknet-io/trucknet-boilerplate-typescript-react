@@ -1,7 +1,7 @@
 // https://github.com/kentcdodds/react-testing-library/blob/master/examples/__tests__/react-router.js
 
 import { createMemoryHistory } from "history";
-import * as React from "react";
+import React from "react";
 import { Router } from "react-router-dom";
 import { render } from "react-testing-library";
 

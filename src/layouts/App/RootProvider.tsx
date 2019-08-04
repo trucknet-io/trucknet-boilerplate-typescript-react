@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import MuiLocaleProvider from "./MuiLocaleProvider";
 
 class RootProvider extends React.PureComponent {

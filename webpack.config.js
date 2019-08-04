@@ -29,7 +29,6 @@ const DEV = process.env.NODE_ENV !== "production";
 
 const plugins = [
   new WebpackBar(),
-  new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, LANGUAGES_REGEX),
   new webpack.ContextReplacementPlugin(/date-fns[/\\]locale$/, LANGUAGES_REGEX),
   new CleanWebpackPlugin([paths.output]),
   new CopyWebpackPlugin([paths.static]),
@@ -99,7 +98,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "ts-loader",
+            loader: require.resolve("ts-loader"),
             options: {
               transpileOnly: true,
               getCustomTransformers: path.join(

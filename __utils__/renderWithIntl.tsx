@@ -1,5 +1,5 @@
 import { LionessProvider } from "lioness";
-import * as React from "react";
+import React from "react";
 import { render } from "react-testing-library";
 import translationsJson from "src/i18n/translations.json";
 

@@ -6,7 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import { withStyles, WithStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { T } from "lioness";
-import * as React from "react";
+import React from "react";
 
 // tslint:disable-next-line import-name
 import ReactSVG from "react-svg";

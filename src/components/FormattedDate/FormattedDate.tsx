@@ -1,5 +1,5 @@
 import format from "date-fns/format";
-import * as React from "react";
+import React from "react";
 
 import { WithLocale, withLocale } from "src/contexts/LocaleContext";
 import { DATE_FNS_LOCALES, getDateFnsLocale } from "src/utils/locale";

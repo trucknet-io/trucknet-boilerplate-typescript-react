@@ -46,7 +46,7 @@ If you need any inspiration on how to write tests with different libraries from 
 - env-cmd
 - Webpack v4
 - Babel v7 (only for storybooks)
-- awesome-typescript-loader v5
+- ts-loader
 - favicons-webpack-plugin
 - html-webpack-plugin
 - file-loader

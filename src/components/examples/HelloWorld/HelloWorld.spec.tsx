@@ -1,6 +1,6 @@
 import renderWithIntl from "__utils__/renderWithIntl";
 import "jest-dom/extend-expect";
-import * as React from "react";
+import React from "react";
 import { cleanup, fireEvent } from "react-testing-library";
 import HelloWorld from "./HelloWorld";
 

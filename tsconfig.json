@@ -14,7 +14,9 @@
     "typeRoots": ["node_modules/@types", "./@types"],
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "target": "es5"
+    "moduleResolution": "node",
+    "target": "es5",
+    "module": "esnext"
   },
   "include": ["src/**/*", "__tests__/**/*", "__utils__/**/*"]
 }

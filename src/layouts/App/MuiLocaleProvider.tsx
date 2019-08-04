@@ -2,7 +2,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { StylesProvider } from "@material-ui/styles";
 import { LionessProvider } from "lioness";
-import * as React from "react";
+import React from "react";
 
 import jss from "src/config/jss";
 import { createTheme } from "src/config/theme";
