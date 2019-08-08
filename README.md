@@ -38,8 +38,8 @@ If you need any inspiration on how to write tests with different libraries from 
 
 - React v16
 - Typescript v3
-- material-ui v3
-- material-ui/icons v3
+- material-ui v4
+- material-ui/icons v4
 
 ### Build
 
