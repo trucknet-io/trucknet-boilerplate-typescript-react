@@ -1,7 +1,7 @@
 import { Theme, withStyles, WithStyles } from "@material-ui/core/styles";
 import React from "react";
+import { withLocale, WithLocale } from "react-targem";
 
-import { withLocale, WithLocale } from "src/contexts/LocaleContext";
 import Header from "src/layouts/Header";
 import Pages from "src/pages";
 import { setInitialScope } from "src/utils/errorReporting";
