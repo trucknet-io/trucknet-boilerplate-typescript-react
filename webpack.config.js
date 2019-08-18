@@ -101,10 +101,6 @@ module.exports = {
             loader: require.resolve("ts-loader"),
             options: {
               transpileOnly: true,
-              getCustomTransformers: path.join(
-                __dirname,
-                "./config/polyfills.js",
-              ),
             },
           },
         ],
