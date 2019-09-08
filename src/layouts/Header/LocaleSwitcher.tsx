@@ -2,25 +2,26 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Language from "@material-ui/icons/Language";
-import * as React from "react";
+import React from "react";
+import { withLocale, WithLocaleStateful } from "react-targem";
 
 import { Locale, LOCALES } from "src/config/locales";
-import { WithLocale, withLocale } from "src/contexts/LocaleContext";
 
 type State = {
   anchorEl?: HTMLElement;
 };
 
-class LocaleSwitcher extends React.Component<WithLocale, State> {
+class LocaleSwitcher extends React.Component<WithLocaleStateful, State> {
   public state: State = {};
   public render() {
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
+    const ariaOwns = open ? "menu-appbar" : undefined;
 
     return (
       <div>
         <IconButton
-          aria-owns={open ? "menu-appbar" : undefined}
+          aria-owns={ariaOwns}
           aria-haspopup="true"
           onClick={this.handleMenu}
           color="inherit">
@@ -51,8 +52,10 @@ class LocaleSwitcher extends React.Component<WithLocale, State> {
       changeLocale(l.code);
       this.handleClose();
     };
+    const selected = locale === l.code;
+
     return (
-      <MenuItem key={l.code} selected={locale === l.code} onClick={handleClick}>
+      <MenuItem key={l.code} selected={selected} onClick={handleClick}>
         {l.localTitle} ({l.englishTitle})
       </MenuItem>
     );

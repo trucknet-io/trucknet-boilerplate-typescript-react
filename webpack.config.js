@@ -10,8 +10,8 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const WebpackBar = require("webpackbar");
 
 const filesExts = require("./config/filesExts");
+const LANGUAGES_REGEX = require("./config/languagesRegex");
 const errorReportingPlugin = require("./config/errorReporting/webpack");
-const { SUPPORTED_LOCALES } = require("./src/config/locales/locales");
 
 const paths = {
   input: "src",
@@ -25,14 +25,10 @@ const paths = {
 };
 
 const TITLE = "Boilerplate";
-const LANGUAGES_REGEX = new RegExp(
-  `(${SUPPORTED_LOCALES.join("|")})($|\.js$|\/index\.js$)`,
-);
 const DEV = process.env.NODE_ENV !== "production";
 
 const plugins = [
   new WebpackBar(),
-  new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, LANGUAGES_REGEX),
   new webpack.ContextReplacementPlugin(/date-fns[/\\]locale$/, LANGUAGES_REGEX),
   new CleanWebpackPlugin([paths.output]),
   new CopyWebpackPlugin([paths.static]),
@@ -102,13 +98,9 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "ts-loader",
+            loader: require.resolve("ts-loader"),
             options: {
               transpileOnly: true,
-              getCustomTransformers: path.join(
-                __dirname,
-                "./config/polyfills.js",
-              ),
             },
           },
         ],

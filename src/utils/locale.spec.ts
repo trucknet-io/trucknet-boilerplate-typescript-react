@@ -8,7 +8,7 @@ describe("findLocale", () => {
   beforeAll(() => {
     consoleWarnSpy = jest
       .spyOn(global.console, "warn")
-      .mockImplementation(() => {});
+      .mockImplementation(() => undefined);
   });
 
   afterEach(() => {

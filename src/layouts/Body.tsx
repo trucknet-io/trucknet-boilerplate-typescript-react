@@ -1,8 +1,10 @@
 import { Theme, withStyles, WithStyles } from "@material-ui/core/styles";
-import * as React from "react";
+import React from "react";
+import { withLocale, WithLocale } from "react-targem";
+
 import Header from "src/layouts/Header";
-// tslint:disable-next-line import-name
 import Pages from "src/pages";
+import { setInitialScope } from "src/utils/errorReporting";
 
 const styles = (theme: Theme) => ({
   layout: {
@@ -18,9 +20,14 @@ const styles = (theme: Theme) => ({
   },
 });
 
-interface IProps extends WithStyles<typeof styles> {}
+interface IProps extends WithStyles<typeof styles>, WithLocale {}
 
 class Body extends React.Component<IProps> {
+  public componentDidMount() {
+    // This is just an example usage of Sentry's error reporting
+    setInitialScope(null, this.props.locale);
+  }
+
   public render() {
     const { classes } = this.props;
 
@@ -35,4 +42,4 @@ class Body extends React.Component<IProps> {
   }
 }
 
-export default withStyles(styles)(Body);
+export default withLocale(withStyles(styles)(Body));

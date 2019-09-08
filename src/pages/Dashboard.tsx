@@ -1,6 +1,6 @@
 import Grid from "@material-ui/core/Grid";
 import { withStyles, WithStyles } from "@material-ui/core/styles";
-import * as React from "react";
+import React from "react";
 import HelloWorld from "src/components/examples/HelloWorld";
 
 const styles = {};
